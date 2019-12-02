@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StarwarsService } from '../starwars.service';
 
 @Component({
   selector: 'app-body',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BodyComponent implements OnInit {
 
-  constructor() { }
+  constructor(private starwarsService: StarwarsService) { }
 
   ngOnInit() {
+    this.starwarsService.getPeoples().subscribe(results => {
+      console.log(results);
+    });
   }
 
 }
