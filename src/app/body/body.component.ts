@@ -8,12 +8,14 @@ import { StarwarsService } from '../starwars.service';
 })
 export class BodyComponent implements OnInit {
 
+  peoples: unknown[];
+
   constructor(private starwarsService: StarwarsService) { }
 
   ngOnInit() {
     this.starwarsService.getPeoples().subscribe(results => {
       console.log(results);
+      this.peoples = results.results;
     });
   }
-
 }
